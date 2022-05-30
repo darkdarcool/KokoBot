@@ -1,22 +1,26 @@
 package me.darkdarcool.kokobot;
 
+import net.dv8tion.jda.api.JDA;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class User {
     private String id;
     private DB db;
+    private JDA jda;
 
     /**
      * Creates a class based on a user's id.
      * Will not throw an exception if the user does not exist,
      * instead you should call the userExists method first to check
-     * @param _id
-     * @param _db
+     * @param id
+     * @param db
      */
-    public User(String _id, DB _db) {
-        id = _id;
-        db = _db;
+    public User(String id, DB db, JDA jda) {
+        this.id = id;
+        this.db = db;
+        this.jda = jda;
     }
 
     /**
@@ -76,6 +80,9 @@ public class User {
         } catch (Exception err) {
             err.printStackTrace();
         }
+    }
+    public void sendMessage(String message) {
+        jda.getUserById(id).openPrivateChannel().complete().sendMessage(message).queue();
     }
 
     public String getID() {
