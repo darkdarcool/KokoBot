@@ -50,7 +50,7 @@ public class User {
         data.put("id", id);
         data.put("items", new ArrayList<>());
         data.put("coins", 0);
-        data.put("isPremium", false); // <- idfk why I added this
+        data.put("isPremium", false); // <- idk why I added this
         return data;
     }
 
