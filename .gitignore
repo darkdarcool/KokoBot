@@ -1,8 +1,9 @@
 .idea/
 
-src/main/resources/*.json # Ignore firebase service account
+*.json # Ignore firebase service account
 
 Config.java
+src/main/java/me/darkdarcool/kokobot/Config.java
 *.jar
 
 .gradle/*
