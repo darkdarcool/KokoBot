@@ -1,9 +1,10 @@
 .idea/
 
-src/main/resources/serviceaccount.json # Ignore firebase service account
+src/main/resources/*.json # Ignore firebase service account
 
-src/main/java/me/darkdarcool/kokobot/Config.java # This file contains the Token
+Config.java
 *.jar
 
-.gradle/
+.gradle/*
+gradle/
 build/

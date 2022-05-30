@@ -13,7 +13,6 @@ import com.google.firebase.cloud.FirestoreClient;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
 
 public class DB {
     private Firestore db;
