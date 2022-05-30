@@ -10,3 +10,4 @@ src/main/java/me/darkdarcool/kokobot/Config.java
 gradle/
 build/
 
+src/main/resources/serviceaccount.json
