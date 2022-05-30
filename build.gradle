@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+mainClassName = "me.darkdarcool.kokobot.Bot"
+version '1.0'
+
+repositories {
+    mavenCentral()
+    google()
+}
+
+dependencies {
+    implementation 'net.dv8tion:JDA:5.0.0-alpha.4'
+    implementation  'com.google.firebase:firebase-admin:8.1.0'
+    implementation "org.slf4j:slf4j-simple:1.7.9"
+}
+
+test {
+    useJUnitPlatform()
+}
