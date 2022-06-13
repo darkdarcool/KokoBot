@@ -1,13 +1,13 @@
-package me.darkdarcool.kokobot;
+package com.darkdarcool.kokobot;
 
 // Local
-import me.darkdarcool.kokobot.messages.Embed;
-import me.darkdarcool.kokobot.events.Events;
+import com.darkdarcool.kokobot.events.Events;
+import com.darkdarcool.kokobot.messages.Embed;
 
 // JDA
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
-import net.dv8tion.jda.api.entities.MessageEmbed;
+import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -15,10 +15,10 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import javax.security.auth.login.LoginException;
 
 
-class Bot extends ListenerAdapter {
+public class Bot extends ListenerAdapter {
     private DB db = new DB();
     private Timeout timeout = new Timeout();
-    private CommandList cmds = new CommandList();
+    private final CommandList cmds = new CommandList();
     private Events events = new Events();
     public static void main(String[] args) throws LoginException {
         System.out.println("Starting bot...");
@@ -50,6 +50,13 @@ class Bot extends ListenerAdapter {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    @Override
+    public void onButtonClick(ButtonClickEvent event) {
+        User user = new User(event.getMember().getId(), db, event.getJDA());
+        String cmdName = event.getButton().getId().toString().split(":")[0];
+        System.out.println(event.getButton().getId());
+        cmds.getCommand(cmdName).onInteraction(event, db, user, timeout);
     }
 
 

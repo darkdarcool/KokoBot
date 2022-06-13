@@ -1,5 +1,6 @@
-package me.darkdarcool.kokobot;
+package com.darkdarcool.kokobot;
 
+import com.darkdarcool.kokobot.messages.Embed;
 import net.dv8tion.jda.api.JDA;
 
 import java.util.ArrayList;
@@ -83,6 +84,9 @@ public class User {
     }
     public void sendMessage(String message) {
         jda.getUserById(id).openPrivateChannel().complete().sendMessage(message).queue();
+    }
+    public void sendMessage(Embed embed) {
+        jda.getUserById(id).openPrivateChannel().complete().sendMessageEmbeds(embed.build()).queue();
     }
 
     public String getID() {

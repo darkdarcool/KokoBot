@@ -1,17 +1,18 @@
-package me.darkdarcool.kokobot;
+package com.darkdarcool.kokobot;
 
-import com.iwebpp.crypto.TweetNaclFast;
-import me.darkdarcool.kokobot.commands.Command;
+import com.darkdarcool.kokobot.commands.Command;
+import com.darkdarcool.kokobot.commands.Search;
+import com.darkdarcool.kokobot.commands.Meme;
 
 import java.util.HashMap;
-import me.darkdarcool.kokobot.commands.Help;
-import me.darkdarcool.kokobot.commands.Search;
+import com.darkdarcool.kokobot.commands.Help;
 
 public class CommandList {
     public static HashMap<String, Command> commands = new HashMap<String, Command>();
     public CommandList() {
         commands.put("help", new Help());
         commands.put("search", new Search());
+        commands.put("meme", new Meme());
         // TODO: Add more commands lmao
     }
     public boolean isCommand(String command) {

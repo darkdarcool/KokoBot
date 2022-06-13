@@ -1,4 +1,4 @@
-package me.darkdarcool.kokobot;
+package com.darkdarcool.kokobot;
 
 public class Codes {
     public static int accountCreated = 100;

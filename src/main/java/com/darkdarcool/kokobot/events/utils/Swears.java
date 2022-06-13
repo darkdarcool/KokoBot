@@ -1,7 +1,7 @@
 // File by PimDeWitte
 // https://gist.github.com/PimDeWitte/c04cc17bc5fa9d7e3aee6670d4105941
 
-package me.darkdarcool.kokobot.events.utils;
+package com.darkdarcool.kokobot.events.utils;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -55,8 +55,8 @@ public class Swears {
     /**
      * Iterates over a String input and checks whether a cuss word was found in a list, then checks if the word should be ignored (e.g. bass contains the word *ss).
      *
-     * @param input
-     * @return
+     * @param input The string to be analyzed
+     * @return ArrayList<String></String>
      */
 
     public ArrayList<String> badWordsFound(String input) {
@@ -64,8 +64,7 @@ public class Swears {
             return new ArrayList<>();
         }
 
-        // don't forget to remove leetspeak, probably want to move this to its own function and use regex if you want to use this
-
+        // Remove number for letters
         input = input.replaceAll("1", "i");
         input = input.replaceAll("!", "i");
         input = input.replaceAll("3", "e");

@@ -1,7 +1,7 @@
-package me.darkdarcool.kokobot.events;
+package com.darkdarcool.kokobot.events;
 
-import me.darkdarcool.kokobot.DB;
-import me.darkdarcool.kokobot.User;
+import com.darkdarcool.kokobot.User;
+import com.darkdarcool.kokobot.DB;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.ArrayList;

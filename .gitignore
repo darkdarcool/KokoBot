@@ -7,5 +7,6 @@ src/main/java/me/darkdarcool/kokobot/Config.java
 .gradle/*
 gradle/
 build/
+app/
 
 src/main/resources/serviceaccount.json

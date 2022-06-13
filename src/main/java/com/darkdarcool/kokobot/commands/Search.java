@@ -1,10 +1,11 @@
-package me.darkdarcool.kokobot.commands;
+package com.darkdarcool.kokobot.commands;
 
-import me.darkdarcool.kokobot.Codes;
-import me.darkdarcool.kokobot.DB;
-import me.darkdarcool.kokobot.Timeout;
-import me.darkdarcool.kokobot.User;
-import me.darkdarcool.kokobot.messages.Embed;
+import com.darkdarcool.kokobot.User;
+import com.darkdarcool.kokobot.messages.Embed;
+import com.darkdarcool.kokobot.Codes;
+import com.darkdarcool.kokobot.DB;
+import com.darkdarcool.kokobot.Timeout;
+import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.Random;
@@ -52,4 +53,7 @@ public class Search implements Command {
     private void addCoins(int count, User user) {;
         user.setCoins(user.getCoins() + count);
     }
+    public void onInteraction(ButtonClickEvent event, DB db, User user, Timeout timeout) {
+
+    };
 }

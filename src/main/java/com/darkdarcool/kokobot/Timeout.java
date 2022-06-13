@@ -1,4 +1,4 @@
-package me.darkdarcool.kokobot;
+package com.darkdarcool.kokobot;
 
 
 import java.util.HashMap;

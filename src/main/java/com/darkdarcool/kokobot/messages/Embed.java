@@ -1,4 +1,4 @@
-package me.darkdarcool.kokobot.messages;
+package com.darkdarcool.kokobot.messages;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
@@ -19,5 +19,13 @@ public class Embed {
         eb.setDescription(description);
         eb.setFooter(footer);
         return eb.build();
+    }
+    public MessageEmbed build(String msgURL) {
+        EmbedBuilder eb = new EmbedBuilder();
+        eb.setTitle(title);
+        eb.setFooter(footer);
+        eb.setImage(msgURL);
+        return eb.build();
+
     }
 }
