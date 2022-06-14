@@ -17,7 +17,7 @@ public class Swears {
 
     public Swears() {
         try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(new URL("https://docs.google.com/spreadsheets/d/1hIEi2YG3ydav1E06Bzf2mQbGZ12kh2fe4ISgLg_UBuM/export?format=csv").openConnection().getInputStream()));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(new URL("https://docs.google.com/spreadsheets/u/0/d/1aDAdjN_M9YEIBnhBjUwKS2GuqFmR_NWpGVe-aGy-gEA/export?format=csv&id=1aDAdjN_M9YEIBnhBjUwKS2GuqFmR_NWpGVe-aGy-gEA&gid=0").openConnection().getInputStream()));
             String line = "";
             int counter = 0;
             while ((line = reader.readLine()) != null) {

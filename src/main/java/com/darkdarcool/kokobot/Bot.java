@@ -5,6 +5,7 @@ import com.darkdarcool.kokobot.events.Events;
 import com.darkdarcool.kokobot.messages.Embed;
 
 // JDA
+import com.darkdarcool.kokobot.utils.KeepAlive;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
@@ -13,7 +14,6 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 // Errors
 import javax.security.auth.login.LoginException;
-
 
 public class Bot extends ListenerAdapter {
     private DB db = new DB();
@@ -25,6 +25,7 @@ public class Bot extends ListenerAdapter {
         JDA jda = JDABuilder.createDefault(Config.TOKEN).build();
         jda.addEventListener(new Bot());
         System.out.println("Bot started");
+        KeepAlive.start();
     }
 
     @Override
@@ -33,6 +34,9 @@ public class Bot extends ListenerAdapter {
             if (event.getAuthor().isBot()) return;
             User user = new User(event.getAuthor().getId(), db, event.getJDA());
             String content = event.getMessage().getContentRaw();
+            if (!events.runEvents(event, db, user)) {
+                return;
+            };
             if (content.startsWith(Config.PREFIX)) {
                 boolean doesExist = user.userExists(true);
                 if (!doesExist) {
@@ -44,9 +48,6 @@ public class Bot extends ListenerAdapter {
                     cmds.getCommand(cmds.stripContentToCommand(content)).execute(event, db, user, timeout);
                 }
             }
-            else {
-                events.runEvents(event, db, user);
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -55,7 +56,6 @@ public class Bot extends ListenerAdapter {
     public void onButtonClick(ButtonClickEvent event) {
         User user = new User(event.getMember().getId(), db, event.getJDA());
         String cmdName = event.getButton().getId().toString().split(":")[0];
-        System.out.println(event.getButton().getId());
         cmds.getCommand(cmdName).onInteraction(event, db, user, timeout);
     }
 

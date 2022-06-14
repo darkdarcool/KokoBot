@@ -11,14 +11,17 @@ import java.util.ArrayList;
 
 public class SwearWatcher implements Event {
     private Swears swears = new Swears();
-    public void onMessage(MessageReceivedEvent event, DB db, User user) {
+    public boolean onMessage(MessageReceivedEvent event, DB db, User user) {
+        boolean isOk = true;
         String message = event.getMessage().getContentRaw();
         ArrayList<String> badWords = swears.badWordsFound(message);
         if (badWords.size() > 0) {
             event.getMessage().delete().queue();
             // DM the user the embed
             user.sendMessage(embed(badWords));
+            isOk = false;
         }
+        return isOk;
     }
     private Embed embed(ArrayList<String> badWords) {
         StringBuilder sb = new StringBuilder();

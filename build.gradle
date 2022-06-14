@@ -6,7 +6,7 @@ plugins {
 
 
 mainClassName = "com.darkdarcool.kokobot.Bot"
-version '1.0'
+version '' // empty for my own purposes
 
 repositories {
     mavenCentral()

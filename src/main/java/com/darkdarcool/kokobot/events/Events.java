@@ -11,9 +11,13 @@ public class Events {
     public Events() {
         events.add(new SwearWatcher());
     }
-    public void runEvents(MessageReceivedEvent event, DB db, User user) {
+    public boolean runEvents(MessageReceivedEvent event, DB db, User user) {
+        boolean isOk = true;
         for (Event e : events) {
-            e.onMessage(event, db, user);
+            if (!e.onMessage(event, db, user)) {
+                isOk = false;
+            }
         }
+        return isOk;
     }
 }

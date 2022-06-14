@@ -3,29 +3,20 @@ package com.darkdarcool.kokobot.messages;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 
-public class Embed {
+public class ImageEmbed {
     public String title;
     public String description;
-    public String footer;
-    public Embed(String title, String description, String footer) {
+    public String image;
+    public ImageEmbed(String title, String description, String image) {
         this.title = title;
         this.description = description;
-        this.footer = footer;
+        this.image = image;
     }
-
     public MessageEmbed build() {
         EmbedBuilder eb = new EmbedBuilder();
         eb.setTitle(title);
         eb.setDescription(description);
-        eb.setFooter(footer);
+        eb.setImage(image);
         return eb.build();
-    }
-    public MessageEmbed buildWithImage(String msgURL) {
-        EmbedBuilder eb = new EmbedBuilder();
-        eb.setTitle(title);
-        eb.setFooter(footer);
-        eb.setImage(msgURL);
-        return eb.build();
-
     }
 }
