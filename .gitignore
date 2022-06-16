@@ -18,3 +18,4 @@ api/*
 docs/*
 *.ts
 *.html
+docs/index.html
