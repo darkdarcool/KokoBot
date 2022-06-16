@@ -10,3 +10,11 @@ build/
 app/
 
 src/main/resources/serviceaccount.json
+src/main/resources/items.txt
+src/main/resources/items/*
+
+api/*
+
+docs/*
+*.ts
+*.html

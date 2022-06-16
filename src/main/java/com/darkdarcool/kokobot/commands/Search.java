@@ -21,7 +21,7 @@ public class Search implements Command {
 
     @Override
     public String getDescription() {
-        return "Search for an item :eyes:";
+        return "Search for an item  :eyes:";
     }
 
     @Override
